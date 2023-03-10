@@ -1,0 +1,23 @@
+{
+  "name": "commentblock",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rommka83/commentBlock.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rommka83/commentBlock/issues"
+  },
+  "homepage": "https://github.com/rommka83/commentBlock#readme",
+  "dependencies": {
+    "nanoid": "^4.0.1"
+  }
+}
