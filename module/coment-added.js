@@ -19,8 +19,8 @@ const creatObjComment = function () {
     name: inputArr[1].value,
     date: dataCorection(inputArr[2].value),
     coment: inputArr[0].value,
+    like: false,
   };
-  console.log(obj);
   inputArr.map((el) => {
     el.blur();
     el.value = '';

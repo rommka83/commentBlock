@@ -7,7 +7,7 @@ export const renderComentsList = function (arr) {
   container.append(list);
 
   arr.sort((arrA, arrB) => {
-    return arrA.date < arrB.date ? 1 : -1;
+    return new Date(arrA.date) < new Date(arrB.date) ? 1 : -1;
   });
 
   arr.map((el) => {
@@ -40,9 +40,11 @@ export const renderComentsList = function (arr) {
                                     </g>
                                 </svg>
                             </button>
-                            <button class="controls-btn controls-btn-like">
+                            <button class="controls-btn controls-btn-like" data-controls="coment-like">
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    viewBox="0 0 80.87 71.75" class='like' fill='blue'>
+                                    viewBox="0 0 80.87 71.75" class='like' fill=${
+                                      el.like ? '#eb4b57' : '#87bb95'
+                                    }>
                                     <path class="st0"
                                         d="M74.39,6.49c-8.65-8.65-22.67-8.65-31.31,0l-2.64,2.64L37.8,6.49c-8.65-8.65-22.67-8.65-31.31,0l0,0
                                                 	c-8.65,8.65-8.65,22.67,0,31.31l2.64,2.64l31.31,31.31l31.31-31.31l2.64-2.64C83.03,29.15,83.03,15.13,74.39,6.49z" />

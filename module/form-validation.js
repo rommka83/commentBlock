@@ -61,7 +61,6 @@ const errorDelet = function () {
     this === form &&
       errMessages.forEach((el) => {
         el.remove();
-        console.log('aa');
       });
   }
 

@@ -34,6 +34,7 @@ export let commentsArr = [
     date: 'Sat Mar 11 2023 14:51:53 GMT+0300 (Москва, стандартное время)',
     coment:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis odio a error sequi repudiandae suscipit inventore libero? Eos dolorem velit veritatis omnis minima amet, commodi consequatur, assumenda voluptas laudantium voluptates!',
+    like: false,
   },
   {
     id: '6MgwQWPPzzfdEo0-ysXdg',
@@ -41,12 +42,14 @@ export let commentsArr = [
     date: 'Thu Mar 09 2023 03:00:00 GMT+0300 (Москва, стандартное время)',
     coment:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis odio a error sequi repudiandae suscipit inventore libero? Eos dolorem velit veritatis omnis minima amet, commodi consequatur, assumenda voluptas laudantium voluptates!',
+    like: true,
   },
   {
     id: 'm8ueXfjczdj7jvJcZPMKk',
     name: 'Дима',
     date: 'Tue Mar 07 2023 03:00:00 GMT+0300 (Москва, стандартное время)',
     coment: 'Lorem ipsum dolor, assumenda voluptas laudantium voluptates!',
+    like: false,
   },
   {
     id: '4CM5HrLwLsqmyZKl2joj-',
@@ -54,6 +57,7 @@ export let commentsArr = [
     date: 'Sat Mar 11 2023 14:52:26 GMT+0300 (Москва, стандартное время)',
     coment:
       'Facilis odio a error sequi repudiandae suscipit inventore libero? Eos dolorem velit veritatis omnis minima amet, commodi consequatur, assumenda voluptas laudantium voluptates!',
+    like: false,
   },
   {
     id: '4Yvodhxtp1WTX-zKKuF4c',
@@ -61,11 +65,13 @@ export let commentsArr = [
     date: 'Sat Mar 11 2023 14:52:35 GMT+0300 (Москва, стандартное время)',
     coment:
       'Lorem ipsum dolor sit amet consectetur, commodi consequatur, assumenda voluptas laudantium voluptates!',
+    like: false,
   },
   {
     id: 'C8lydrBcAos3u8DCN15fr',
     name: 'Дуся',
     date: 'Fri Mar 10 2023 03:00:00 GMT+0300 (Москва, стандартное время)',
     coment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+    like: false,
   },
 ];
