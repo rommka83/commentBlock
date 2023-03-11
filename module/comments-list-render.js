@@ -1,46 +1,26 @@
-const commentsArr = [
-  {
-    name: 'Ваня',
-    date: 'Дата, время',
-    coment:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis odio a error sequi repudiandaesuscipit inventore libero? Eos dolorem velit veritatis omnis minima amet, commodi consequatur, assumenda voluptas laudantium voluptates! Laboriosam voluptas possimus tempore temporibus amet doloribus veritatis harum modi ullam explicabo tempora aliquam sequi voluptate dicta nemo dignissimos laborum ratione esse, at facere perferendis nihil error earum! Unde, iste?',
-  },
-  {
-    name: 'Петя',
-    date: 'Дата, время',
-    coment: 'Lorem ipsum  error earum! Unde, iste?',
-  },
-  {
-    name: 'Боря',
-    date: 'Дата, время',
-    coment:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis odio a error sequi repudiandaesuscipit inventore libero? Eos dolorem velit veritatis omnis minima amet, commodi consequatur, assumenda voluptas laudantium voluptates! Laboriosam voluptas possimus tempore temporibus amet doloribus veritatis harum modi ullam explicabo tempora aliquam sequi voluptate dicta nemo dignissimos laborum ratione esse, at facere perferendis nihil error earum! Unde, iste?',
-  },
-  {
-    name: 'Саша',
-    date: 'Дата, время',
-    coment:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis odio a error sequi repudiandaesuscipit inventore libero? Eos dolorem velit veritatis omnis minima amet',
-  },
-  {
-    name: 'Маша',
-    date: 'Дата, время',
-    coment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-  },
-];
-
-export const renderComentsList = function () {
+export const renderComentsList = function (arr) {
+  const oldList = document.querySelector('.comment-list');
+  oldList !== null && oldList.remove();
   const list = document.createElement('ul');
   list.classList.add('comment-list');
   const container = document.querySelector('.container');
   container.append(list);
-  commentsArr.map((el) => {
-    return (list.innerHTML += `<li class="comment-item">
+
+  arr.sort((arrA, arrB) => {
+    return arrA.date < arrB.date ? 1 : -1;
+  });
+
+  arr.map((el) => {
+    return (list.innerHTML += `<li class="comment-item" key=${el.id}>
                     <div class="comment-head">
                         <span class="comment-name">${el.name}, </span>
-                        <span class="comment-date">${el.date}</span>
+                        <span class="comment-date">${displayDate(
+                          el.date
+                        )}, ${new Date(el.date)
+      .toLocaleTimeString()
+      .slice(0, 5)}</span>
                         <div class="item-controls">
-                            <button class="controls-btn">
+                            <button class="controls-btn controls-btn-delet" data-controls="coment-delete">
                                 <svg class="delet" version="1.1" xmlns="http://www.w3.org/2000/svg"
                                     xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 284.011 284.011">
                                     <g>
@@ -60,9 +40,9 @@ export const renderComentsList = function () {
                                     </g>
                                 </svg>
                             </button>
-                            <button class="controls-btn">
+                            <button class="controls-btn controls-btn-like">
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    viewBox="0 0 80.87 71.75" class='like'>
+                                    viewBox="0 0 80.87 71.75" class='like' fill='blue'>
                                     <path class="st0"
                                         d="M74.39,6.49c-8.65-8.65-22.67-8.65-31.31,0l-2.64,2.64L37.8,6.49c-8.65-8.65-22.67-8.65-31.31,0l0,0
                                                 	c-8.65,8.65-8.65,22.67,0,31.31l2.64,2.64l31.31,31.31l31.31-31.31l2.64-2.64C83.03,29.15,83.03,15.13,74.39,6.49z" />
@@ -73,4 +53,27 @@ export const renderComentsList = function () {
                     <p class="comment-text">${el.coment}</p>
                 </li>`);
   });
+};
+
+const displayDate = function (str) {
+  const yesterday = new Date(
+    new Date().getFullYear(),
+    new Date().getMonth(),
+    new Date().getDate() - 1
+  ).toLocaleDateString();
+
+  const today = new Date(
+    new Date().getFullYear(),
+    new Date().getMonth(),
+    new Date().getDate()
+  ).toLocaleDateString();
+
+  switch (new Date(str).toLocaleDateString()) {
+    case yesterday:
+      return 'вчера';
+    case today:
+      return 'сегодня';
+    default:
+      return new Date(str).toLocaleDateString();
+  }
 };
